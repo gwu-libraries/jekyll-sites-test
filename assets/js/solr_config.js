@@ -1,4 +1,4 @@
-var config = {collectionId: "g158bh28p", // Unique Id of the journal's collection in GWSS
+const config = {collectionId: "2r36tz25h", // Unique Id of the journal's collection in GWSS
 			//Main query for free text searching --> Note that it references a variable called "user_query", which must be parametrized separately with the user's actual query string
 			resultsFields: {title: "title_tesim",  	// GWSS fields to retrieve for search results, mapped to more descriptive names
 					 authors: "creator_tesim",
@@ -39,7 +39,9 @@ var config = {collectionId: "g158bh28p", // Unique Id of the journal's collectio
 			// For retrieving keyword metadata
 			keywordField: "keyword_sim",
 			collectionField: "member_of_collection_ids_ssim",
-			solrURL: "http://ec2-18-222-180-6.us-east-2.compute.amazonaws.com/solr/solr-core-dev/select/"};
+			
+				solrURL: "https://test.scholarspace.library.gwu.edu/solr/scholarspace/select"};
+			
 config.freeTextQueryFieldString = config.freeTextQueryFields.join(" ");
 // For limiting to a particular GWSS collection
 config.collectionFieldString = config.collectionField + ":" + config.collectionId;

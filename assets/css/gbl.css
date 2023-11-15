@@ -69,15 +69,29 @@ footer {
 	border-top: solid black 2px;
 	padding: 10px;
 	font-family: 'Crimson Text', serif;
+	border-top: solid #bbb 1px;
+	padding: 15px 25px 20px;
+	background-color: #eee;
 }
 
-/*.footer-text {
-	display: inline-block;
+.footer-container {
+	display: flex;
+	flex-direction: row;
 }
 
+.footer-text {
+	margin-right: 2em;
+	margin-bottom: 1em;
+	width: 50%;
+	}
 .footer-images {
-	display: inline-block;
-}*/
+	display: flex;
+	}
+
+.footer-images > div {
+	padding-bottom: 1.2em;
+}
+
 .footer-text-publisher {
 	font-size: 1.15em;
 	margin-bottom: 0px;
@@ -89,24 +103,13 @@ footer {
 
 /* For GW-CIBER and GW LAI logos */
 .ciber-img, .gwlai-img {
-	max-height: 50px;
+	max-height: 500px;
 	padding-right: 20px;
 	padding-top: 5px;
 }
 
-footer {
-border-top: solid #bbb 1px;
-padding: 15px 25px 20px;
-background-color: #eee;
-}
-.footer-text {
-float: left;
-margin-right: 2em;
-margin-bottom: 1em;
-}
-.footer-image {
-float: right;
-}
+
+
 
 /* <div> holding issue select and search*/
 .sidebar-container {

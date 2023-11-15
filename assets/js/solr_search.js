@@ -197,7 +197,7 @@ function parseQueryResponse(solrObj, searchParams) {
 							}, {}));
 			return prev;
 		}
-	console.log(solrObj);
+
 	let numResults = solrObj.response.numFound,
 	// Get the number of the first results in this set (for paginated results)
 		offset = solrObj.response.start,
