@@ -1,0 +1,432 @@
+/* Horizontal bar beneath the banner with main <nav> headings*/
+.menu-bar {
+	background-color: rgba(153, 153, 102, .75);
+	overflow: hidden;
+	width: 1200px;
+    font-family: 'Crimson Text', serif;
+    margin-bottom: 30px;
+}
+
+.menu-bar ul {
+	margin-bottom: 0px;
+}
+/* List elements for main <nav> bar */
+.menu-bar li {
+	float: left;
+	text-align: center;
+	position: relative;
+	margin-left: 65px;
+	padding-right: 65px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	list-style-type: none;
+}
+/* Implements custom-positioned icons for first list element, using the technique here:
+https://stackoverflow.com/questions/1708833/adjust-list-style-image-position
+.menu-bar-list li:first-of-type:before {
+	content: "";
+    position: absolute;
+    top: 16px;
+    left: -45px;
+    width: 30px;
+    height: 30px;
+    background-image: url(/assets/img/gbl-globe-smaller.png);
+}*/
+/* Font size in pixels to prevent different browsers from wrapping the content */
+.menu-bar a {
+	color: rgba(0,51,102, 1);
+	/*font-size: 1.75em;*/
+	font-size: 28px;
+	text-decoration: none;
+}
+/* Container <div>, grid layout*/
+.wrapper {
+	display: grid;
+	grid-template-columns: repeat(4, 300px);
+	grid-row-gap: 1em;
+	margin-left: 0px;
+}
+/* Get rid of margin added by Bootstrap */
+.wrapper::after { 
+	display: none;
+}
+
+/* Holds banner and main <nav>*/
+.header-container {
+	grid-column-start: 1;
+	grid-column-end: 5;
+}
+/* Below banner and main <nav> */
+main {
+	grid-column-start: 1;
+	grid-column-end: 5;
+	display: grid;
+}
+/* Footer */
+footer {
+	grid-column-start: 1;
+	grid-column-end: 5;
+	border-top: solid black 2px;
+	padding: 10px;
+	font-family: 'Crimson Text', serif;
+}
+
+/*.footer-text {
+	display: inline-block;
+}
+
+.footer-images {
+	display: inline-block;
+}*/
+.footer-text-publisher {
+	font-size: 1.15em;
+	margin-bottom: 0px;
+}
+.footer-text-place {
+	font-size: 1em;
+
+}
+
+/* For GW-CIBER and GW LAI logos */
+.ciber-img, .gwlai-img {
+	max-height: 50px;
+	padding-right: 20px;
+	padding-top: 5px;
+}
+
+footer {
+border-top: solid #bbb 1px;
+padding: 15px 25px 20px;
+background-color: #eee;
+}
+.footer-text {
+float: left;
+margin-right: 2em;
+margin-bottom: 1em;
+}
+.footer-image {
+float: right;
+}
+
+/* <div> holding issue select and search*/
+.sidebar-container {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	width: 300px;
+}
+/*<div> holding  content */
+.content-container {
+	grid-column-start: 2;
+	grid-column-end: 5;
+	font-family: 'Crimson Text', serif;
+	border-left: 1px solid rgba(0,51,102);
+	padding-left: 10px;
+	padding-top: 10px;
+	width: 900px;
+}
+
+
+
+.menu {
+	font-size: 14pt;
+}
+/* Issue browse select menu */
+.menu-select legend {
+	font-size: 14pt;
+}
+.menu-select {
+	padding: 5px;
+}
+.menu-select input {
+	font-size: 14pt;
+}
+.menu-select select {
+	font-size: 11pt;
+	width: 150px;
+}
+/* Holds ISSN */
+.sidebar-content {
+	margin-top: 25px;
+	/*font-family: 'Crimson Text', serif;*/
+	font-size: 1.15em;
+	padding: 5px;
+}
+.video-container, .linkedin-container {
+	display: flex;
+	align-items: center;
+	margin-top: -25px;
+	margin-bottom: 15px;
+}
+.video-icon-container, .linkedin-icon-container {
+	position: relative;
+	width: 75px;
+	height: 75px;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+.linkedin-icon-container {
+	padding-left: 25px;
+}
+/* Icon linking to video */
+.video-icon, .linkedin-icon {
+	position: absolute;
+	width: 100%;
+}
+
+.linkedin-icon > object {
+	pointer-events: none;
+}
+
+.video-icon {
+	height: 100%;
+}
+.video-play-button-bkg {
+	background:  #B3B38F 0% 0% no-repeat padding-box;
+	opacity: 1;
+	width: 75px;
+	height: 35px;
+	z-index: 2;
+	position: absolute;
+
+}
+div.video-play-button {
+	font-size: 1.75em;
+	position: absolute;
+	z-index: 3;
+	padding-left: .25em;
+	padding-bottom: .10em;
+}
+div.video-play-button,
+span.video-play-button {
+	color: #003C59;
+}
+div.video-play-button a:hover,
+.video-play-button:hover {
+	color: white;
+	text-decoration: none !important;
+}
+
+.video-text, .linkedin-text {
+	padding-left: 1em;
+}
+
+/* Title of each issue on the issue TOC page */
+.issue-title {
+	font-size: 1.75rem;
+}
+/* Colored bar holding the page title. */
+.header-bar {
+    width: 100%; 
+    height: 40px;
+    line-height: 30px;
+    border-bottom: 1px solid blue;
+    background-color: rgba(153, 153,102, .75);
+    margin-bottom: 15px;
+
+}
+.gbl-intro-text {
+	font-size: 1.25em;
+	text-align: justify;
+	color: rgba(0,51,102, 1);
+	margin-top: -15px;
+}
+
+/* <h2> text for page titles */
+.toc-heading, .search-results-heading, .static-content-heading {
+	margin: 5px;
+	padding: 5px;
+	font-size: 1.5em;
+}
+/* Optional issue metadata */
+.special-issue-authors {
+	font-size: 1.25em;
+	/*padding-left: 10px;*/
+}
+.special-issue-title {
+	font-size: 1.25em;
+	font-style: italic;
+}
+
+/* Items in issue table of contents */
+.article-list {
+	list-style-type: none;
+	padding: 0;
+}
+
+.article-list > li {
+	overflow: hidden;
+}
+.article-list > li > div > p {
+	line-height: 1.5rem;
+}
+.article-list > li > div > p.toc-pdf {
+	padding: 0;
+	/*float: left;*/
+	margin: 0 0 0 0;
+	
+}
+/* Float left for screen display, reversing DOM order */
+.article-list > li > div.toc-pdf {
+	float: left;
+}
+.article-list > li > div.toc-title {
+	float: right;
+	width: 90%;
+}
+
+.toc-title-link {
+	font-size: 1.35em;
+}
+
+.toc-pdf-link {
+	text-decoration: none;
+	color: rgba(0,51,102);
+}
+.toc-authors {
+	overflow: hidden;
+	font-size: 1.25em;
+}
+
+/* Article metadata page */
+
+.article-title {
+	/*border-top: 1px solid rgba(0,51,102);*/
+	border-bottom: 3px solid rgba(0,51,102);
+	
+}
+.article-title-heading {
+	font-size: 1.75em;
+}
+.article-authors {
+	border-bottom: 1px solid rgba(0,51,102);
+	padding-top: 5px;
+}
+.article-authors ul {
+	list-style-type: none;
+	margin-left: 0px;
+}
+/* Styling for each author's name */
+.article-authors-heading {
+	font-size: 1.25em;
+	margin: 0px 0px 5px 0px;
+}
+
+.article-abstract {
+	padding-top: 5px;
+}
+
+.article-abstract > h2 {
+	font-size: 1.5em;
+	margin: 15px 0px 0px 0px;
+}
+
+.article-abstract > p {
+	margin: 5px 0px 0px 0px;
+}
+
+.article-abstract-text {
+	font-size: 1.25em;
+}
+
+.article-doi-link {
+	font-size: 1.25em;
+}
+
+.no-results {
+	font-size: 1.25em;
+}
+
+/* For subsections on about pages */
+
+.inner-level-heading {
+	font-size: 1.5em;
+}
+/* Text in subsections on about pages */
+.static-content-subsection > p {
+	font-size: 1.25em;
+	padding-bottom: 10px;
+	line-height: 1.25em;
+	text-align: justify;
+}
+/* List for timeline on submission page */
+.timeline {
+	font-size: 1.25em;
+	padding-bottom: 10px;
+	line-height: 1.25em;
+	text-align: justify;
+}
+
+/* To position images and text side by side*/
+.editorial-team-container {
+	display: flex;
+	margin-bottom: 25px;
+}
+
+.editorial-team-img {
+	flex-shrink: 0;
+	flex-grow: 0;
+	padding-bottom: 10px;
+}
+
+.editorial-team-text {
+	font-size: 1.25em;
+	padding-bottom: 10px;
+	line-height: 1.25em;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
+.editorial-board-list {
+	list-style-type: none;
+	margin-left: 0px;
+	padding-left: 0px;
+	padding-top: 10px;
+	font-size: 1.25em;
+	line-height: 1.25em;
+	padding-bottom: 10px;
+}
+
+.static-content-menu.top-level {
+	padding-bottom: 50px;
+}
+
+.static-content-menu a {
+	font-size: 1.5em;
+}
+
+.static-content-list {
+	font-size: 1.25em;
+}
+
+.checkbox-list {
+	list-style-image: url('/assets/img/icons8-unchecked-checkbox-16.png');
+}
+
+
+.checkbox-list p {
+	margin-bottom: 0px;
+	font-size: 1.25em;
+}
+
+.cfp-list {
+	font-size: 1.25em;
+}
+
+.license-container {
+	margin-top: 50px;
+}
+
+.accessibility-footer {
+	float: left;
+}
+
+.visually-hidden { 
+    position: absolute !important;
+    height: 1px; 
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap; /* added line */
+}
