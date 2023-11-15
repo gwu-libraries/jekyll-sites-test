@@ -1,4 +1,4 @@
-var config = {collectionId: "2r36tz25h", // Unique Id of the journal's collection in GWSS
+var config = {collectionId: "g158bh28p", // Unique Id of the journal's collection in GWSS
 			//Main query for free text searching --> Note that it references a variable called "user_query", which must be parametrized separately with the user's actual query string
 			resultsFields: {title: "title_tesim",  	// GWSS fields to retrieve for search results, mapped to more descriptive names
 					 authors: "creator_tesim",
