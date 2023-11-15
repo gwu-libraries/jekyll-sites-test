@@ -39,8 +39,7 @@ var config = {collectionId: "2r36tz25h", // Unique Id of the journal's collectio
 			// For retrieving keyword metadata
 			keywordField: "keyword_sim",
 			collectionField: "member_of_collection_ids_ssim",
-			//solrURL: "http://gwfedora-prod2.wrlc.org:8983/solr/scholarspace/select"};
-			solrURL: "/solr/scholarspace/select"};
+			solrURL: "http://ec2-18-222-180-6.us-east-2.compute.amazonaws.com/solr/solr-core-dev/select/"};
 config.freeTextQueryFieldString = config.freeTextQueryFields.join(" ");
 // For limiting to a particular GWSS collection
 config.collectionFieldString = config.collectionField + ":" + config.collectionId;
