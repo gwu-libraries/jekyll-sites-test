@@ -1,1 +1,1 @@
-Sitemap: https://gbl.digital.library.gwu.edu/jekyll-sites-test/sitemap.xml
+Sitemap: https://gbl.digital.library.gwu.edu/sitemap.xml
