@@ -40,7 +40,7 @@ const config = {collectionId: "2r36tz25h", // Unique Id of the journal's collect
 			keywordField: "keyword_sim",
 			collectionField: "member_of_collection_ids_ssim",
 			
-				solrURL: "https://test.scholarspace.library.gwu.edu/solr/scholarspace/select"};
+				solrURL: "http://http://ec2-34-219-119-123.us-west-2.compute.amazonaws.com"};
 			
 config.freeTextQueryFieldString = config.freeTextQueryFields.join(" ");
 // For limiting to a particular GWSS collection
