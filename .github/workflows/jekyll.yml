@@ -13,6 +13,7 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+  # Let user select which site to build on input: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -36,6 +37,7 @@ jobs:
         with:
           repository: gwu-libraries/jekyll-journals
           ssh-key: ${{ secrets.JEKYLL_JOURNALS_REPO_KEY }}
+#      Instead of the following, use Jekyll builder image from GHCR          
 #      - name: Setup Ruby
 #        uses: ruby/setup-ruby@8575951200e472d5f2d95c625da0c7bec8217c42 # v1.161.0
 #        with:
