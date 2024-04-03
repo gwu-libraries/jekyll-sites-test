@@ -27,6 +27,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  packages: read
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -57,8 +58,8 @@ jobs:
       - name: Build site inside Docker container
         run: |
           mkdir ${PWD}/builds
-          docker pull ghcr.io/gwu-libraries/jekyll-journals-builder:main
-          docker run --volume="${PWD}/builds:/srv/dest" --volume="${PWD}/${{ inputs.sourceSite }}:/srv/source" --volume="jekyll-cache:/srv/source/.jekyll-cache" -e JEKYLL_ENV=production jekyll-journals-builder jekyll build -s /srv/source -d /srv/dest
+#          docker pull ghcr.io/gwu-libraries/jekyll-journals-builder:main
+#          docker run --volume="${PWD}/builds:/srv/dest" --volume="${PWD}/${{ inputs.sourceSite }}:/srv/source" --volume="jekyll-cache:/srv/source/.jekyll-cache" -e JEKYLL_ENV=production jekyll-journals-builder jekyll build -s /srv/source -d /srv/dest
 
 #      - name: Setup Pages
 #        id: pages
