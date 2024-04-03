@@ -59,7 +59,7 @@ jobs:
         run: |
           mkdir ${PWD}/builds
           docker pull ghcr.io/gwu-libraries/jekyll-journals-builder:main
-          docker run --volume="${PWD}/builds:/srv/dest" --volume="${PWD}/${{ inputs.sourceSite }}:/srv/source" --volume="jekyll-cache:/srv/source/.jekyll-cache" -e JEKYLL_ENV=production jekyll-journals-builder jekyll build -s /srv/source -d /srv/dest
+          docker run --volume="${PWD}/builds:/srv/dest" --volume="${PWD}/${{ inputs.sourceSite }}:/srv/source" --volume="jekyll-cache:/srv/source/.jekyll-cache" -e JEKYLL_ENV=production jekyll-journals-builder:main jekyll build -s /srv/source -d /srv/dest
 
 #      - name: Setup Pages
 #        id: pages
