@@ -58,7 +58,7 @@ jobs:
       - name: Build site inside Docker container
         run: |
           mkdir ${{ github.workspace }}/builds
-          chown -R 1000 ${{ github.workspace }}/builds 
+          sudo chown -R 1000 ${{ github.workspace }}/builds 
           docker run --volume="${{ github.workspace }}/builds:/srv/dest" --volume="${{ github.workspace }}/${{ inputs.sourceSite }}:/srv/source" --volume="jekyll-cache:/srv/source/.jekyll-cache" -e JEKYLL_ENV=production ghcr.io/gwu-libraries/jekyll-journals-builder:main jekyll build --trace -s /srv/source -d /srv/dest
 
 #      - name: Setup Pages
