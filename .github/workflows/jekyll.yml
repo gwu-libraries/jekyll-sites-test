@@ -1,16 +1,9 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
 name: Deploy Jekyll site to Pages
 
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  # Let user select which site to build on input: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs
-    inputs:
+  # Let user select which site to build on input
       sourceSite:
         description: "Source site to build"
         required: true
@@ -18,8 +11,6 @@ on:
         options:
           - pp
           - gbl
-
-
 env:
   REGISTRY: ghcr.io
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -58,6 +49,7 @@ jobs:
       - name: Build site inside Docker container
         run: |
           mkdir ${{ github.workspace }}/builds
+# The Docker runs the Jekyll program as a user with UID 1000 -- here we set permissions on the folder for the built assets  
           sudo chown -R 1000 ${{ github.workspace }}/builds 
           docker run --volume="${{ github.workspace }}/builds:/srv/dest" --volume="${{ github.workspace }}/${{ inputs.sourceSite }}:/srv/source" --volume="jekyll-cache:/srv/source/.jekyll-cache" -e JEKYLL_ENV=production ghcr.io/gwu-libraries/jekyll-journals-builder:main jekyll build --trace -s /srv/source -d /srv/dest
 
@@ -69,18 +61,21 @@ jobs:
 #        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
 #        env:
 #          JEKYLL_ENV: production
-#      - name: Upload artifact
-#        # Automatically uploads an artifact from the './_site' directory by default
-#        uses: actions/upload-pages-artifact@v3
+      - name: Upload artifact
+# Automatically uploads an artifact from the './_site' directory by default
+        uses: actions/upload-pages-artifact@v3
+        with:
+# Set the path to the output of the previous step
+          path: ${{ github.workspace }}/builds
 
-  # Deployment job
-  #deploy:
-  #  environment:
-  #    name: github-pages
-  #    url: ${{ steps.deployment.outputs.page_url }}
-  #  runs-on: ubuntu-latest
-  #  needs: build
-  #  steps:
-  #    - name: Deploy to GitHub Pages
-  #      id: deployment
-  #      uses: actions/deploy-pages@v4
+# Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
