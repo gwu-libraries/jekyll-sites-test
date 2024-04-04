@@ -45,11 +45,9 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-#     Retrieve our modified Jekyll image from GHCR
       - name: Build site inside Docker container
         run: |
           mkdir ${{ github.workspace }}/builds
-# The Docker runs the Jekyll program as a user with UID 1000 -- here we set permissions on the folder for the built assets  
           sudo chown -R 1000 ${{ github.workspace }}/builds 
           docker run --volume="${{ github.workspace }}/builds:/srv/dest" --volume="${{ github.workspace }}/${{ inputs.sourceSite }}:/srv/source" --volume="jekyll-cache:/srv/source/.jekyll-cache" -e JEKYLL_ENV=production ghcr.io/gwu-libraries/jekyll-journals-builder:main jekyll build --trace -s /srv/source -d /srv/dest
 
