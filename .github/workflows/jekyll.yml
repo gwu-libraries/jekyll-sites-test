@@ -31,21 +31,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # Checkout Markdown code & assets for compiling with Jekyll
+#     Checkout Markdown code & assets for compiling with Jekyll
       - name: Checkout
         uses: actions/checkout@v4
         with:
           repository: gwu-libraries/jekyll-journals
-          # Using SSH to authenticate with this private repo
+#       Using SSH to authenticate with this private repo
           ssh-key: ${{ secrets.JEKYLL_JOURNALS_REPO_KEY }}
-      # Uses the `docker/login-action` action to log in to the Container registry registry.
+#       Uses the `docker/login-action` action to log in to the Container registry registry.
       - name: Log in to the Container registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      # Retrieve our modified Jekyll image from GHCR
+#     Retrieve our modified Jekyll image from GHCR
       - name: Build site inside Docker container
         run: |
           mkdir ${{ github.workspace }}/builds
