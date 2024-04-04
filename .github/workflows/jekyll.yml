@@ -4,7 +4,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   # Let user select which site to build on input
-    input:
+    inputs:
       sourceSite:
         description: "Source site to build"
         required: true
