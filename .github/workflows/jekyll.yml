@@ -16,6 +16,9 @@ on:
         description: "Branch to build from (default=main)"
         required: false
         default: "main"
+      indexVolume:
+        description: "Volume/issue number to make the home page"
+        required: true
 env:
   REGISTRY: ghcr.io
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -56,7 +59,7 @@ jobs:
           mkdir ${{ github.workspace }}/builds
           sudo chown -R 1000 ${{ github.workspace }}/builds 
           docker run --volume="${{ github.workspace }}/builds:/srv/dest" --volume="${{ github.workspace }}/${{ inputs.sourceSite }}:/srv/source" --volume="jekyll-cache:/srv/source/.jekyll-cache" -e JEKYLL_ENV=production ghcr.io/gwu-libraries/jekyll-journals-builder:pp-v31 jekyll build --trace -s /srv/source -d /srv/dest
-          sudo cp ${{ github.workspace }}/builds/issues/volume_31.html ${{ github.workspace }}/builds/index.html
+          sudo cp ${{ github.workspace }}/builds/issues/volume_${{ inputs.indexVolume }}.html ${{ github.workspace }}/builds/index.html
 
       - name: Upload artifact
 # Automatically uploads an artifact from the './_site' directory by default
